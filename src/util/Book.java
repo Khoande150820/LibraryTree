@@ -1,11 +1,13 @@
+package util;
+
 
 public class Book {
 
-    String bcode;
-    String title;
-    int quantity;
-    int lended;
-    double price;
+    public String bcode;
+    public String title;
+    public int quantity;
+    public int lended;
+    public double price;
 
     public Book(String bcode, String title, int quantity, int lended, double price) {
         this.bcode = bcode;
