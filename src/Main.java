@@ -70,7 +70,7 @@ public class Main {
 
     static void readerMenu(ReaderList rlist) throws IOException {
         while (true) {
-            System.out.println("Reader menu");
+            System.out.println("---------Reader menu------------");
             System.out.println("2.1.      Load data from file\n"
                     + "2.2.      Input & add to the end\n"
                     + "2.3.      Display data\n"
