@@ -30,18 +30,19 @@ public class Manage {
 
     public static BSTree loadBook() throws FileNotFoundException, IOException {
         BSTree bookTree = new BSTree();
-        FileReader f = new FileReader("booklist.txt");
+        FileReader f = new FileReader("book.txt");
         BufferedReader br = new BufferedReader(f);
         String line;
-        while ((line = br.readLine()) != null) {
+        while ((line = br.readLine()) != null ) {
 //            System.out.println(line);
             String[] arrOfString = line.split("[|]", 0);
-            System.out.println(Arrays.toString(arrOfString));
+//            System.out.println(Arrays.toString(arrOfString));
             String bcode = arrOfString[0].trim();
             String title = arrOfString[1].trim();
             int quantity = Integer.parseInt(arrOfString[2].trim());
-            double price = Double.parseDouble(arrOfString[3].trim());
-            bookTree.insert(new Book(bcode, title, quantity, 0, price));
+            int lended = Integer.parseInt(arrOfString[3].trim());
+            double price = Double.parseDouble(arrOfString[4].trim());
+            bookTree.insert(new Book(bcode, title, quantity, lended, price));
         }
         return bookTree;
     }

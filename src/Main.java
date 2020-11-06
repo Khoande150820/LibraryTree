@@ -18,14 +18,19 @@ public class Main {
             System.out.println("1.7.      Delete by bcode by copying");
             System.out.println("1.8.      Simply balancing");
             System.out.println("1.9.      Count number of books");
+            System.out.println("1.11.     f1()");
+            System.out.println("1.12.     f2()");
+            System.out.println("1.13.     f3()");
+            System.out.println("1.14.     f4()");
+            System.out.println("1.15.     f5()");
             System.out.println("0.    Exit program");
             System.out.print("Enter your choice: ");
 
-            int selection = Validate.getIntInRange(0, 9);
+            int selection = Validate.getIntInRange(0, 100);
             switch (selection) {
                 case 1:
-                    bookTree = Manage.loadBook();
                     System.out.println("1.1.      Load data from file");
+                    bookTree = Manage.loadBook();
                     break;
                 case 2:
                     System.out.println("1.2.      Input & insert data");
@@ -61,6 +66,40 @@ public class Main {
                     int count = bookTree.count(bookTree.root);
                     System.out.println("There are " + count + " number of books!");
                     break;
+
+                case 11:
+                    bookTree.clear();
+                    bookTree = Manage.loadBook();
+                    System.out.println("Breadth first");
+                    bookTree.breadth(bookTree.root);
+                    System.out.println("In-order");
+                    bookTree.inOrder(bookTree.root);
+                    break;
+                case 12:
+                    bookTree.clear();
+                    bookTree = Manage.loadBook();
+                    Book G = new Book("7", "G", 3, 2, 1);
+                    bookTree.insert(G);
+                    bookTree.breadth(bookTree.root);
+                    break;
+                case 13:
+                    bookTree.clear();
+                    bookTree = Manage.loadBook();
+                    bookTree.searchFix(bookTree.root, "6", 9);
+                    bookTree.breadth(bookTree.root);
+                    break;
+                case 14:
+                    bookTree.clear();
+                    bookTree = Manage.loadBook();
+                    bookTree.deleByCopy("3");
+                    bookTree.breadth(bookTree.root);
+                    break;
+                case 15:
+                    bookTree.clear();
+                    bookTree = Manage.loadBook();
+                    bookTree.balance(bookTree.root);
+                    bookTree.breadth(bookTree.root);
+                    break;
                 case 0:
                     return;
             }
@@ -81,7 +120,7 @@ public class Main {
 
             System.out.print("Enter your choice: ");
             int selection = Validate.getIntInRange(1, 7);
-            switch(selection){
+            switch (selection) {
                 case 1:
                     Manage.loadReader(rlist);
                     break;

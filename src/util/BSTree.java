@@ -219,4 +219,20 @@ public class BSTree {
         
         return 1 + count(p.left) + count(p.right);
     }
+    
+    public void searchFix(Node<Book> p, String bcode, double fix) {
+        if (p == null) {
+            return;
+        }
+        if (p.info.bcode.compareTo(bcode) == 0) {
+            p.info.setPrice(fix);
+            System.out.println("Fixed");
+            return;
+        }
+        if (bcode.compareTo(p.info.bcode) < 1) {
+            search(p.left, bcode);
+        } else {
+            search(p.right, bcode);
+        }
+    }
 }
